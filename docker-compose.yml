@@ -1,0 +1,37 @@
+version: '3'
+services:
+
+  client:
+    build: ./client
+    command: "npm run start"
+    volumes:
+      - ./client:/myapp/client
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+
+  server:
+    build: ./server
+    working_dir: /myapp/server/blog
+    command: php artisan serve --port 3000 --host 0.0.0.0
+    volumes:
+      - ./server:/myapp/server
+    ports:
+      - "3001:3000"
+    depends_on:
+      - db
+ 
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: root
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+volumes:
+  mysql_data:
+    driver: local
