@@ -25,6 +25,7 @@ services:
   db:
     image: mysql:5.7
     environment:
+      MYSQL_DATABASE: laravel
       MYSQL_ROOT_PASSWORD: password
       MYSQL_USER: root
     volumes:
