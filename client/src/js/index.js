@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Post from "./components/Post";
+import Home from "./components/Home";
 
 const root = document.getElementById('root');
-ReactDOM.render(<Post/>, root);
+ReactDOM.render(<Home/>, root);
