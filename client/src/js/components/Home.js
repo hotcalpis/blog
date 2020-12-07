@@ -9,12 +9,8 @@ export default function Home(props) {
     return (
         <Router>
             <Switch>
-                <Route path="/public/index.html" exact>
-                    <PostBoard/>
-                </Route>
-                <Route path="/post/:id">
-                    <Post/>
-                </Route>
+                <Route path={["/public/index.html", "/"]} component={PostBoard} />
+                <Route path="/post/:id" component={Post} />
             </Switch>
         </Router>
     );
