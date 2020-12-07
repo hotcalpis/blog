@@ -20,6 +20,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-draggable": "^4.4.3",
+    "react-is": "^17.0.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "webpack": "^4.44.1",
@@ -33,6 +34,6 @@
     "@fortawesome/react-fontawesome": "^0.1.13",
     "axios": "^0.19.2",
     "history": "^4.10.1",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.2.1"
   }
 }
