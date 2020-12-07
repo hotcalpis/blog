@@ -8,7 +8,13 @@ module.exports = {
   entry: "./js/index.js",
   output: {
     path: path.join(__dirname, 'public/js'),
-    filename: "bundle.js"
+    filename: "bundle.js",
+    publicPath: '/',
+  },
+  devServer: {
+    historyApiFallback: {
+      index: 'public/index.html',
+    },
   },
   module: {
     rules: [

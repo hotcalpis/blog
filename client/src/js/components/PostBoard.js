@@ -39,7 +39,7 @@ export default function PostBoard(props) {
             )}
 
             {posts.map(post => (
-                <Link to={'/public/post/' + post.id} style={{textAlign: 'center', color: 'black', textDecoration: 'none'}} key={post.id}>
+                <Link to={'/post/' + post.id} style={{textAlign: 'center', color: 'black', textDecoration: 'none'}} key={post.id}>
                     <h2>
                         {post.title}
                     </h2>

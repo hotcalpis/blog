@@ -12,7 +12,7 @@ export default function Home(props) {
                 <Route path="/public/index.html" exact>
                     <PostBoard/>
                 </Route>
-                <Route path="/public/post/:id">
+                <Route path="/post/:id">
                     <Post/>
                 </Route>
             </Switch>
