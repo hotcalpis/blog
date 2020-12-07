@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import { BrowserRouter as Router, Switch, Route, Link, useParams } from 'react-router-dom';
 
 export default function Post(props) {
     const [post, setPost] = useState([]);
     const [isLoading, setIsLoading] = useState([]);
+    let { id } = useParams();
 
     useEffect(() => {
         const fetchData = async () => {
             setIsLoading(true);
             await axios
-                .get(`http://localhost:3001/api/posts/${props.post_id}`)
+                .get(`http://localhost:3001/api/posts/${id}`)
                 .then(result => {
                     setPost(result.data);
                     console.log(post);
