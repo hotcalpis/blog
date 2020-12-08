@@ -8,6 +8,7 @@ export default function PostBoard(props) {
     const [isError, setIsError] = useState(false);
 
     useEffect(() => {
+        let unmounted = false;
         const fetchData = async () => {
             setIsError(false);
             setIsLoading(true);
@@ -16,19 +17,20 @@ export default function PostBoard(props) {
                 await axios
                     .get('http://localhost:3001/api/posts')
                     .then(result => {
-                        setPosts(result.data);
+                        if (!unmounted) setPosts(result.data);
                         console.log(posts);
                     })
                     .catch(() => {
                         console.log('失敗しました');
                     });
             } catch (error) {
-                setIsError(true);
+                if (!unmounted) setIsError(true);
             }
-            setIsLoading(false);
+            if (!unmounted) setIsLoading(false);
         };
 
         fetchData();
+        return () => { unmounted = true; };
     }, []);
 
     return (
