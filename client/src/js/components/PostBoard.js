@@ -33,13 +33,13 @@ export default function PostBoard(props) {
 
     return (
         <div>
-            {isError && <div>Something went wrong ...</div>}
+            {isError && <p>Something went wrong ...</p>}
             {isLoading && (
-                <div style={{textAlign: 'center'}}>Loading...</div>
+                <p>Loading...</p>
             )}
 
             {posts.map(post => (
-                <Link to={'/post/' + post.id} style={{textAlign: 'center', color: 'black', textDecoration: 'none'}} key={post.id}>
+                <Link to={'/post/' + post.id} key={post.id}>
                     <h2>
                         {post.title}
                     </h2>

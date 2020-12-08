@@ -28,14 +28,10 @@ export default function Post(props) {
     return (
         <div>
             {isLoading && (
-                <div style={{textAlign: 'center'}}>Loading...</div>
+                <p>Loading...</p>
             )}
-            <h1 style={{textAlign: 'center'}}>
-                {post.title}
-            </h1>
-            <p style={{textAlign: 'center'}}>
-                {post.body}
-            </p>
+            <h1>{post.title}</h1>
+            <p>{post.body}</p>
         </div>
     )
 }
