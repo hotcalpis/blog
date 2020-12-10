@@ -35,13 +35,13 @@ export default function Post(props) {
     }, []);
 
     return (
-        <div>
+        <>
             {isError && <p>Something went wrong ...</p>}
             {isLoading && (
                 <p>Loading...</p>
             )}
             <h1>{post.title}</h1>
             <p>{post.body}</p>
-        </div>
+        </>
     )
 }

@@ -34,7 +34,7 @@ export default function PostBoard(props) {
     }, []);
 
     return (
-        <div>
+        <>
             {isError && <p>Something went wrong ...</p>}
             {isLoading && (
                 <p>Loading...</p>
@@ -47,6 +47,6 @@ export default function PostBoard(props) {
                     </h2>
                 </Link>
             ))}
-        </div>
+        </>
     );
 }
