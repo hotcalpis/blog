@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
+import EditorJs from '@editorjs/editorjs';
 
 export default function PostForm(props) {
     const [title, setTitle] = useState([]);
@@ -23,13 +24,16 @@ export default function PostForm(props) {
     }
 
     return (
-        <Vertical>
-            <label>Title</label>
-            <input type='text' value={title} style={{width: '80%'}} onChange={handleChangeTitle} />
-            <label>Body</label>
-            <textarea value={body} rows='5' style={{width: '80%'}} onChange={handleChangeBody} />
-            <FaIcon icon={faArrowAltCircleUp} size='2x' onClick={handleSubmit} />
-        </Vertical>
+        <>
+            <Vertical>
+                <label>Title</label>
+                <input type='text' value={title} style={{width: '80%'}} onChange={handleChangeTitle} />
+                <label>Body</label>
+                {/* <textarea value={body} rows='5' style={{width: '80%'}} onChange={handleChangeBody} /> */}
+                <RichEditor id='editorjs' onChange={handleChangeBody} />
+                <SubmitButton id='saveButton' icon={faAngleDoubleRight} size='2x' onClick={handleSubmit} />
+            </Vertical>
+        </>
     )
 }
 
@@ -43,6 +47,22 @@ const Vertical = styled.div`
     align-items: center;
 `;
 
-const FaIcon = styled(FontAwesomeIcon)`
-    margin: 0.4em;
+const SubmitButton = styled(FontAwesomeIcon)`
+    margin: 0.4em 0 0.4em auto;
+`;
+
+const editor = new EditorJs({
+    holder: 'editorjs',
+    tools: {
+        header: {
+            class: Headers,
+            inlineToolbar: true,
+        },
+    },
+});
+
+const RichEditor = styled.div`
+    width: 80%;
+    border: solid;
+    border-width: 1px;
 `;
